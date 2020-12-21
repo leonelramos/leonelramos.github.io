@@ -9,7 +9,10 @@ layout: default
 
   {{ content }}
 
-  <button type="button" class="filter-button" value="programming">programming</button>
+  <button type="button" class="filter-button active-filter" value="graphics">graphics</button>
+  <button type="button" class="filter-button active-filter" value="game-dev">game-dev</button>
+  <button type="button" class="filter-button active-filter" value="tutorial">tutorial</button>
+  <button type="button" class="filter-button active-filter" value="dev-log">dev-log</button>
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Logs" }}</h2>
     <ul class="post-list">

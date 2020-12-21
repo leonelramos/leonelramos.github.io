@@ -2,7 +2,7 @@
 layout: post
 title: "dev and misc"
 author: "leonel"
-date: 2020-12-20 02:10:02 -0500
+date: 2020-12-10 02:10:02 -0500
 tags: dev-log misc
 ---
 

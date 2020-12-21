@@ -986,3 +986,14 @@ hr {
 .hidden {
     display: none;
   }
+
+.active-filter {
+    background-color: #38c3ee5b;
+    color: #222;
+}
+
+.filter-button {
+    padding: 0px 10px 0px 10px;
+    text-transform: lowercase;
+    border-radius: 0%;
+}
