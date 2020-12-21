@@ -22,9 +22,9 @@ const toggleLogs = (tag, logs, toggleState) =>
         if(log.classList.contains(tag))
         {
             let skip = false;
-            for(let class_name of log.classList)
+            for(let curr_tag of log.classList)
             {
-                if(className != tag && toggleState[class_name] == false) skip = true;;
+                if(curr_tag != tag && toggleState[curr_tag] == false) skip = true;;
             }
             if(!skip) log.classList.toggle("hidden");
         }
