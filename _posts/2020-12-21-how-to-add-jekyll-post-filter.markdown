@@ -232,26 +232,33 @@ Now add the following code into `log-filter.js` and you are done.
 {% highlight javascript %}
 const main = () => 
 {
+    let toggleState = {};
     let blogs = document.getElementsByClassName("blog");
     let filter_buttons = document.getElementsByClassName("filter-button");
     for(let filter_button of filter_buttons)
     {
+        toggleState[filter_button.value] = true;
         filter_button.addEventListener('click', () => {
             tag = filter_button.value;
-            
-            toggleBlogs(tag, blogs);
+            toggleState[tag] = !toggleState[tag];
+            toggleBlogs(tag, blogs, toggleState);
             filter_button.classList.toggle("active-filter");
         });
     }
 }
 
-const toggleBlogs = (tag, blogs) =>
+const toggleBlogs = (tag, blogs, toggleState) =>
 {
     for(blog of blogs)
     {
         if(blog.classList.contains(tag))
         {
-            blog.classList.toggle("hidden");
+            let skip = false;
+            for(let curr_tag of blog.classList)
+            {
+                if(curr_tag != tag && toggleState[curr_tag] == false) skip = true;
+            }
+            if(!skip) blog.classList.toggle("hidden");
         }
     }
 }
@@ -267,4 +274,4 @@ Just copy and paste whatever server address jekyll gives you into your internet 
 
 ### Bugs to fix
 
-- These toggles blindly toggle the blogs and do not take into account what other toggles are active or not. This can lead to wacky behavior toggles no longer toggle the correct blogs. With a bit more mathematical rigor, this can be fixed. Will update with a fix when I find time.
+- ~~These toggles blindly toggle the blogs and do not take into account what other toggles are active or not. This can lead to wacky behavior toggles no longer toggle the correct blogs. With a bit more mathematical rigor, this can be fixed. Will update with a fix when I find time.~~ Fixed!
