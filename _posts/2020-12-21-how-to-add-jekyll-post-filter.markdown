@@ -6,7 +6,7 @@ date: 2020-12-20 02:10:02 -0500
 tags: tutorial
 ---
 
-### Before We Start
+## Before We Start
 
 For this tutorial I will be using a default Jekyll project on Ubuntu.<br>
 That is, our starting point will be running the following command then going into our project folder.
@@ -18,7 +18,7 @@ $ cd blog-filter-tut
 
 By default, Jekyll projects come packaged with the theme <strong>Minima</strong>. We need to find where this theme is located in order to edit some of the default `layouts` that it has defined. It is fine if you do not know what a `layout` in Jekyll is, that will become clear later.
 
-#### If you don't have any existing blog posts
+### If you don't have any existing blog posts
 
 If you want to follow along this tutorial and actually see the filters work by the end then you'll need some dummy blog posts to filter.
 
@@ -32,7 +32,7 @@ $ touch ./_posts/2020-12-20-cooking-blogs.md
 
 In any text editor add the following <strong>Front Matter</strong> to the beginning of the blogs you just created. We will be filtering based on the `tags` a blog post has in it's Front Matter.
 
-in `2020-12-20-movie-reviews.md`
+In `2020-12-20-movie-reviews.md` add
 {% highlight html %}
 ---
 layout: post
@@ -42,7 +42,7 @@ tags: movie-reviews opinion-pieces
 ---
 {% endhighlight %}
 
-in `2020-12-20-daily-thoughts.md`
+In `2020-12-20-daily-thoughts.md` add
 {% highlight html %}
 ---
 layout: post
@@ -52,7 +52,7 @@ tags: daily-thoughts opinion-pieces
 ---
 {% endhighlight %}
 
-in `2020-12-20-cooking-blog.md`
+In `2020-12-20-cooking-blog.md` add
 {% highlight html %}
 ---
 layout: post
@@ -62,7 +62,7 @@ tags: recipes
 ---
 {% endhighlight %}
 
-### Finding the `_layout` folder in Minima's installation directory
+## Finding the `_layout` folder in Minima's installation directory
 
 First we need to find where Minima is installed. Run the command,  
 
@@ -98,7 +98,7 @@ blog-filter-tut(or whatever you named your project)/
 └── about.markdown
 {% endhighlight %}
 
-### Adding some custom CSS to hide blog posts
+## Adding some custom CSS to hide blog posts
 
 Create a folder called `assets` in your project root directory then create a new scss file called `main.scss` inside `assets`.
 
@@ -136,7 +136,7 @@ Open up `main.scss` in any text editor then add the following code into it.
 
 Now any HTML element with the class `hidden` will be hidden on our website. We will use this to hide blog posts that get filtered out. We will add the class `active-filter` to our buttons to make it easy to differentiate which filters are on and off.
 
-### Adding the filtering buttons.
+## Adding the filtering buttons.
 
 <strong>Example of a button we will make for each tag.</strong>
 {% highlight html %}
@@ -173,7 +173,7 @@ layout: default
   {% raw %}{%- if site.posts.size > 0 -%}{% endraw %}
 {% endhighlight %}
 
-#### Troubleshooting
+### Troubleshooting
 
 If you ran into an `insufficient permissions` error when trying to save your changes to `home.html` then in your root directory, open up your console and run
 
@@ -183,7 +183,7 @@ $ sudo chown -R $USER _layouts
 
 This will give you ownership of the `_layouts` folder and the files in it.
 
-### Add your tags as class names to your blogs
+## Add your tags as class names to your blogs
 
 In `home.html` in your `_layouts` folder replace the `<li>` tag that corresponds with each individual blog post with `<li class="blog {% raw %}{{ post.tags | join: ' ' }}{% endraw %}">`. This will give each blog post class names that corresponds with their tags so we can filter them.
 
@@ -221,7 +221,7 @@ layout: default
 
 #### The Javascript
 
-As you probably guessed, we will created a Javascript file called `log-filter.js` in our `assets` folder.
+As you probably guessed, we will create a Javascript file called `log-filter.js` in our `assets` folder.
 
 {% highlight console %}
 $ touch ./assets/log-filter.js
@@ -267,4 +267,4 @@ Just copy and paste whatever server address jekyll gives you into your internet 
 
 ### Bugs to fix
 
-- These toggles blindly toggle the blogs and do not take into account what other toggles are active or not. This can lead to wacky behavior. Fix coming soon.
+- These toggles blindly toggle the blogs and do not take into account what other toggles are active or not. This can lead to wacky behavior toggles no longer toggle the correct blogs. With a bit more mathematical rigor, this can be fixed. Will update with a fix when I find time.
