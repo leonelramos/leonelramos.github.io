@@ -1,10 +1,9 @@
 ---
 layout: post
-title: "tuitorial misc and programming"
+title: "dev and misc"
 author: "leonel"
 date: 2020-12-20 02:10:02 -0500
-categories: tutorial
-tags: tutorial programming misc
+tags: dev-log misc
 ---
 
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
